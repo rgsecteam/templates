@@ -1,0 +1,30 @@
+FACEBOOK SECURITY ALERT
+
+Hi {{.FirstName}},
+
+We noticed a recent login to your Facebook account from a device or location we don't usually see.
+
+UNUSUAL LOGIN DETECTED:
+- Location: Moscow, Russia
+- IP Address: 185.220.101.***
+- Device: Chrome on Windows
+- Time: {{.CurrentTime}}
+
+SECURITY MEASURES ACTIVATED:
+We've temporarily limited some account features for your protection.
+
+PLEASE VERIFY THIS ACTIVITY:
+If this was you, you can ignore this message. If you don't recognize this activity, please secure your account immediately.
+
+Review your login activity:
+{{.URL}}
+
+If this wasn't you, someone may have accessed your account. Please secure it now to prevent unauthorized activity.
+
+The Facebook Security Team
+
+---
+This is an automated security alert from Facebook's login monitoring system.
+
+---
+This is a security awareness training exercise.

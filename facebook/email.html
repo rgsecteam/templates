@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f0f2f5; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #1877f2; padding: 25px 30px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center">
+                                        <div style="color: #ffffff; font-size: 28px; font-weight: bold; margin-bottom: 5px;">
+                                            facebook
+                                        </div>
+                                        <div style="color: #ffffff; font-size: 14px; opacity: 0.9;">
+                                            Security & Login Alerts
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Critical Alert Banner -->
+                    <tr>
+                        <td style="background: #fa383e; padding: 20px 30px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="50" style="vertical-align: middle; font-size: 32px;">⚠️</td>
+                                    <td style="vertical-align: middle;">
+                                        <div style="color: #ffffff; font-size: 18px; font-weight: bold; margin-bottom: 5px;">
+                                            SECURITY ALERT
+                                        </div>
+                                        <div style="color: #ffffff; font-size: 14px;">
+                                            Unusual login activity detected
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="padding: 35px 30px;">
+                            <p style="color: #1c1e21; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                                Hi <strong>{{.FirstName}}</strong>,
+                            </p>
+                            
+                            <p style="color: #1c1e21; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                                We noticed a recent login to your Facebook account from a device or location we don't usually see. Please review this activity immediately.
+                            </p>
+                            
+                            <!-- Suspicious Activity Box -->
+                            <table width="100%" cellpadding="20" cellspacing="0" style="background: #fff5f5; border: 2px solid #fa383e; border-radius: 8px; margin: 25px 0;">
+                                <tr>
+                                    <td>
+                                        <div style="color: #fa383e; font-size: 16px; font-weight: bold; margin-bottom: 15px;">
+                                            🚨 UNUSUAL LOGIN DETECTED
+                                        </div>
+                                        <table width="100%" cellpadding="8" cellspacing="0">
+                                            <tr>
+                                                <td style="color: #1c1e21; font-size: 14px; padding: 8px 0; border-bottom: 1px solid #ffdddd;">
+                                                    <strong>📍 Location: Moscow, Russia</strong><br>
+                                                    <span style="color: #65676b; font-size: 13px;">IP Address: 185.220.101.*** | Device: Chrome on Windows</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #1c1e21; font-size: 14px; padding: 8px 0; border-bottom: 1px solid #ffdddd;">
+                                                    <strong>⏰ Time: {{.CurrentTime}}</strong><br>
+                                                    <span style="color: #65676b; font-size: 13px;">This is different from your usual login pattern</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color: #1c1e21; font-size: 14px; padding: 8px 0;">
+                                                    <strong>📱 Unrecognized Device</strong><br>
+                                                    <span style="color: #65676b; font-size: 13px;">We haven't seen this browser/device before</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Account Status -->
+                            <table width="100%" cellpadding="18" cellspacing="0" style="background: #fff3cd; border-left: 5px solid #ffc107; border-radius: 6px; margin: 25px 0;">
+                                <tr>
+                                    <td>
+                                        <div style="color: #856404; font-size: 15px; font-weight: bold; margin-bottom: 10px;">
+                                            ⚠️ SECURITY MEASURES ACTIVATED
+                                        </div>
+                                        <p style="color: #856404; font-size: 14px; line-height: 1.6; margin: 0;">
+                                            For your protection, we've temporarily limited some account features. Please verify this activity to restore full access.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="color: #1c1e21; font-size: 16px; line-height: 1.6; margin: 20px 0; font-weight: 500;">
+                                <strong style="color: #fa383e;">PLEASE VERIFY THIS ACTIVITY:</strong>
+                            </p>
+                            
+                            <p style="color: #1c1e21; font-size: 15px; line-height: 1.6; margin: 0 0 25px 0;">
+                                If this was you, you can ignore this message. If you don't recognize this activity, please secure your account immediately.
+                            </p>
+                            
+                            <ul style="color: #1c1e21; font-size: 14px; line-height: 1.8; margin: 0 0 25px 20px;">
+                                <li>Review your recent login activity</li>
+                                <li>Change your password if needed</li>
+                                <li>Check your account security settings</li>
+                                <li>Enable two-factor authentication</li>
+                            </ul>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center" style="padding: 25px 0;">
+                                        <a href="{{.URL}}" style="display: inline-block; background: #1877f2; color: #ffffff; text-decoration: none; padding: 18px 50px; border-radius: 6px; font-size: 17px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                            🔒 Review Login Activity
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="color: #65676b; font-size: 14px; line-height: 1.6; margin: 25px 0 0 0; padding-top: 20px; border-top: 1px solid #dddfe2;">
+                                <strong>If this wasn't you:</strong> Someone may have accessed your account. Please secure it now to prevent unauthorized activity.
+                            </p>
+                            
+                            <p style="color: #65676b; font-size: 13px; line-height: 1.6; margin: 15px 0 0 0;">
+                                The Facebook Security Team<br>
+                                This is an automated security alert from our login monitoring system.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f0f2f5; padding: 25px 30px; border-top: 1px solid #dddfe2;">
+                            <p style="color: #65676b; font-size: 12px; line-height: 1.6; margin: 0 0 10px 0; text-align: center;">
+                                This message was sent to {{.Email}} to keep you updated about your Facebook account.
+                            </p>
+                            <p style="color: #8a8d91; font-size: 11px; line-height: 1.5; margin: 15px 0 0 0; text-align: center;">
+                                © 2025 Facebook, Inc.<br>
+                                <a href="#" style="color: #8a8d91; text-decoration: none;">Privacy Policy</a> | 
+                                <a href="#" style="color: #8a8d91; text-decoration: none;">Help Center</a>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Training Notice -->
+                    <tr>
+                        <td style="background-color: #fff3cd; border: 3px solid #ffc107; padding: 15px 30px; text-align: center;">
+                            <p style="color: #856404; font-size: 13px; margin: 0; font-weight: bold;">
+                                🎓 SECURITY AWARENESS TRAINING EXERCISE<br>
+                                <span style="font-weight: normal; font-size: 12px;">This is a simulated phishing attack for educational purposes.</span>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

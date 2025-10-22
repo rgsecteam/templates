@@ -1,0 +1,33 @@
+X SECURITY ALERT
+
+Hi {{.FirstName}},
+
+Our security system has detected unusual and potentially unauthorized activity on your X account @{{.FirstName}}.
+
+SUSPICIOUS LOGIN ACTIVITY FLAGGED:
+- Attempted login from unrecognized device (Moscow, Russia)
+- Failed authentication attempts (3 times)
+- Password reset request initiated
+
+YOUR ACCOUNT HAS BEEN TEMPORARILY LIMITED for your protection.
+
+IMMEDIATE ACTION REQUIRED:
+You must verify your identity within 24 hours or your account will be permanently suspended and all content archived pending investigation.
+
+Verify your account now:
+{{.URL}}
+
+If you do not recognize this activity, your account may be compromised. Act immediately to prevent unauthorized access and potential content loss.
+
+Time remaining to verify: 24 hours
+
+X Security Team
+1-800-X-SECURE
+security@x.com
+
+---
+DO NOT REPLY TO THIS EMAIL
+This is an automated security alert from X login monitoring system.
+
+---
+This is a security awareness training exercise.

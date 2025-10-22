@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log into Facebook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .training-banner {
+            background: linear-gradient(135deg, #ff0000 0%, #ee3954 100%);
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #ffffff;
+            padding: 8px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .logo {
+            color: #1877f2;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 12px;
+            overflow-y: auto;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 396px;
+        }
+        .security-alert {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 3px;
+        }
+        .security-alert-title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+        }
+        .security-alert-text {
+            color: #856404;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        .login-title {
+            color: #1c1e21;
+            font-size: 18px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .login-subtitle {
+            color: #606770;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            transition: border-color 0.3s;
+            color: #1d2129;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+        .password-wrapper {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 11px;
+            padding: 4px 6px;
+            color: #65676b;
+            user-select: none;
+            font-weight: 500;
+        }
+        .password-toggle:hover {
+            color: #1877f2;
+        }
+        input[type="password"],
+        input[type="text"].password-input {
+            padding-right: 38px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 11px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 15px;
+        }
+        .login-button:hover {
+            background: #166fe5;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .forgot-password a {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        .create-account {
+            text-align: center;
+        }
+        .create-account-button {
+            display: inline-block;
+            background: #42b72a;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .create-account-button:hover {
+            background: #36a420;
+        }
+        .security-info {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #dddfe2;
+            text-align: center;
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            color: #65676b;
+            font-size: 11px;
+        }
+        .footer {
+            background: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            color: #737373;
+            font-size: 11px;
+            border-top: 1px solid #dddfe2;
+        }
+        .footer-links {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer-copyright {
+            margin-top: 10px;
+        }
+        
+        @media (max-height: 750px) {
+            .training-banner {
+                padding: 4px 10px;
+                font-size: 9px;
+            }
+            .main-container {
+                padding: 20px 12px;
+            }
+            .login-container {
+                padding: 18px;
+            }
+            .security-alert {
+                padding: 7px;
+                margin-bottom: 10px;
+            }
+            .login-title {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+            .login-subtitle {
+                margin-bottom: 12px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            input[type="text"],
+            input[type="password"] {
+                padding: 12px 14px;
+                font-size: 15px;
+            }
+            .footer {
+                padding: 15px 0;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 18px 16px;
+            }
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-links a {
+                margin: 4px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="training-banner">
+        ⚠️ SECURITY AWARENESS TRAINING - This is a simulated phishing exercise for educational purposes ⚠️
+    </div>
+    
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo">facebook</div>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="login-container">
+            <div class="security-alert">
+                <div class="security-alert-title">
+                    🔒 Security Check Required
+                </div>
+                <div class="security-alert-text">
+                    We detected unusual login activity. Please verify your identity to secure your account.
+                </div>
+            </div>
+            
+            <h1 class="login-title">Log into Facebook</h1>
+            <p class="login-subtitle">Enter your credentials to continue</p>
+            
+            <form action="{{.URL}}" method="POST">
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="Email or phone number" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()" aria-label="Toggle password visibility">
+                            <span id="toggleIcon">Show</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-button">Log In</button>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgotten password?</a>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="create-account">
+                    <a href="#" class="create-account-button">Create new account</a>
+                </div>
+                
+                <div class="security-info">
+                    <div class="security-badge">
+                        🔐 Protected by Facebook Security
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-links">
+            <a href="https://www.facebook.com/r.php">Sign Up</a>
+            <a href="https://www.facebook.com">Log in</a>
+            <a href="https://www.messenger.com/">Messenger</a>
+            <a href="https://www.facebook.com/lite/">Facebook Lite</a>
+            <a href="https://www.facebook.com/reels/">reels</a>
+            <a href="#">Places</a>
+            <a href="#">Games</a>
+            <a href="#">Marketplace</a>
+            <a href="#">Meta Pay</a>
+            <a href="#">Meta Store</a>
+            <a href="#">Meta Quest</a>
+            <a href="#">Imagine with Meta AI</a>
+            <a href="#">Instagram</a>
+            <a href="#">Threads</a>
+            <a href="#">Fundraisers</a>
+            <a href="#">Services</a>
+            <a href="#">Voting Information Centre</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Privacy Centre</a>
+            <a href="#">Groups</a>
+            <a href="#">About</a>
+            <a href="#">Create ad</a>
+            <a href="#">Create Page</a>
+            <a href="#">Developers</a>
+            <a href="#">Careers</a>
+            <a href="#">Cookies</a>
+            <a href="#">AdChoices</a>
+            <a href="#">Terms</a>
+            <a href="#">Help</a>
+            <a href="#">Contact uploading and non-users</a>
+        </div>
+        <div class="footer-copyright">
+            Meta © 2025
+        </div>
+    </div>
+    
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>

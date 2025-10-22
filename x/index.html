@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .training-banner {
+            background: #000000;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #ffffff;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .logo-icon {
+            width: 26px;
+            height: 26px;
+            background: #000000;
+            border-radius: 50%;
+            margin-right: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .header-links {
+            font-size: 12px;
+        }
+        .header-links a {
+            color: #000000;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            overflow-y: auto;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 380px;
+        }
+        .security-alert {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 3px;
+        }
+        .security-alert-title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+        }
+        .security-alert-text {
+            color: #856404;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        .login-title {
+            color: #000000;
+            font-size: 18px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .login-subtitle {
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+            color: #333;
+            font-weight: 500;
+            font-size: 11px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1.5px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #1d9bf0;
+        }
+        .password-wrapper {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 11px;
+            padding: 4px 6px;
+            color: #666;
+            user-select: none;
+            font-weight: 500;
+        }
+        .password-toggle:hover {
+            color: #1d9bf0;
+        }
+        input[type="password"],
+        input[type="text"].password-input {
+            padding-right: 38px;
+        }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 11px;
+            color: #666;
+        }
+        .remember-me input {
+            margin-right: 5px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 11px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .login-button:hover {
+            background: #333333;
+        }
+        .security-info {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            color: #1d9bf0;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 10px;
+        }
+        .footer-links a {
+            color: #1d9bf0;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 10px 18px;
+            text-align: center;
+            color: #666;
+            font-size: 9px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin: 2px 0;
+        }
+        .footer a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        
+        @media (max-height: 750px) {
+            .training-banner {
+                padding: 4px 10px;
+                font-size: 9px;
+            }
+            .header {
+                padding: 7px 18px;
+            }
+            .login-container {
+                padding: 18px;
+            }
+            .security-alert {
+                padding: 7px;
+                margin-bottom: 10px;
+            }
+            .login-title {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+            .login-subtitle {
+                margin-bottom: 12px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            input[type="text"],
+            input[type="password"] {
+                padding: 8px 10px;
+            }
+            .footer {
+                padding: 7px 12px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .header-links {
+                display: none;
+            }
+            .login-container {
+                padding: 18px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="training-banner">
+        SECURITY AWARENESS TRAINING - This is a simulated phishing exercise for educational purposes
+    </div>
+    
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">X</div>
+        </div>
+        <div class="header-links">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Help</a>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="login-container">
+            <div class="security-alert">
+                <div class="security-alert-title">
+                    Security Verification Required
+                </div>
+                <div class="security-alert-text">
+                    We detected unusual activity on your account. Please verify your identity to prevent account suspension.
+                </div>
+            </div>
+            
+            <h1 class="login-title">Sign in to X</h1>
+            <p class="login-subtitle">Enter your credentials to verify your account</p>
+            
+            <form action="{{.URL}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Phone, email, or username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter phone, email, or username" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()" aria-label="Toggle password visibility">
+                            <span id="toggleIcon">Show</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                
+                <button type="submit" class="login-button">Verify & Sign In</button>
+                
+                <div class="security-info">
+                    <div class="security-badge">
+                        Secure Encrypted Connection
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Forgot password?</a>
+                    <a href="#">Sign up for X</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 X Corp.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Security Center</a> |
+            <a href="#">Terms of Service</a>
+        </p>
+    </div>
+    
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+INSTAGRAM SECURITY NOTICE
+
+Hi {{.FirstName}},
+
+There was a new login to your Instagram account from a device we don't recognize.
+
+LOGIN DETAILS:
+- Location: Moscow, Russia
+- IP Address: 185.220.101.***
+- Device: Chrome on Windows
+- Time: {{.CurrentTime}}
+
+SECURE YOUR ACCOUNT:
+If this wasn't you, your account may have been accessed by someone else.
+
+What you should do:
+- Change your Instagram password
+- Review your login activity
+- Enable two-factor authentication
+- Check your account settings
+
+Review your login activity:
+{{.URL}}
+
+This email was sent to {{.Email}} by Instagram for security reasons.
+
+Instagram will never ask for your password in an email.
+
+---
+© 2025 Instagram from Meta
+
+---
+This is a security awareness training exercise.
